@@ -6,33 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>guess the number from 1 to 10</h1>
-    <input id="guess number"> 
-    <button onclick="check()">Check</button>
-    <p id="result">you are right/wrong</p>
-    <p id="score" >score:10</p>
-    <script>
-var guessnumber=document.getElementById("guess number")
-var result=document.getElementById("result")
-var randomNumber=Math.floor(Math.random()*10 )+1
-var score=document.getElementById("score")
-var totalScore=10
-function check(){
-    var enteredNumber=guessnumber.value
-    if(enteredNumber==randomNumber){
-        console.log("RIGHT")
-        result.textContent="right"
-        alert("you won")
+<style>
+    .overlay{
+        background-color: black;
+    
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    opacity: 0.8;
+    z-index: 1;
+    display: none;
     }
-    else{
-        totalScore=totalScore-1
-        score.textContent="score:"+ totalScore
-        console.log("wrong")
-        result.textContent="wrong"
-        
+    .popupbox{
+        position: absolute;
+        background-color: white;
+        color: black;
+        width:40%;
+        padding: 20px;
+        border-radius: 10px;
+        display: none;
+        z-index: 3;
+        left: 30%;
     }
+
+</style>
+    <button onclick="update()">show</button>
+    <div class="overlay"></div>
+    <div class="popupbox">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, ratione eos sed, dolor maxime vel ullam veritatis voluptatibus omnis adipisci magni dolores cum consequuntur cumque obcaecati? Quasi harum similique aliquid?
+            Illo fugiat iste, nam ipsum laudantium culpa esse perspiciatis ratione aperiam id, molestias temporibus mollitia maiores reprehenderit et architecto dicta consequatur eius. Facilis omnis accusamus aliquid laborum qui explicabo obcaecati.</p>
+   <button onclick="closepop()">close</button>
+        </div>
+        <script>
+
+var overlay=document.querySelector(".overlay")
+var popupbox=document.querySelector(".popupbox")
+function update(){
+
+popupbox.style.display="block"
+overlay.style.display="block"
+
 }
-    </script>
+function closepop(){
+    popupbox.style.display="none"
+
+    overlay.style.display="none"
+}
+
+
+        </script>
+
 </body>
 </html>
